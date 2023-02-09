@@ -1,0 +1,225 @@
+<nav
+  class="navbar navbar-expand-sm navbar-dark bg-danger"
+  aria-label="Third navbar example">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">{{ this.email }}</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarsExample03"
+      aria-controls="navbarsExample03"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExample03">
+      <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLink="/"
+            routerLinkActive="router-link-active"
+            >Home</a
+          >
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="dropdown03"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            >{{ this.email }}</a
+          >
+          <ul class="dropdown-menu" aria-labelledby="dropdown03">
+            <li><a class="dropdown-item" (click)="logout()">LOG-OUT</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<form (ngSubmit)="insertData()" [formGroup]="form">
+  <fieldset>
+    <div class="form-group">
+      <label class="form-label mt-2" for="name">facility_number</label>
+      <input
+        type="text"
+        formControlName="facility_number"
+        class="form-control"
+        name="facility_number"
+        placeholder="facility name here"
+        [(ngModel)]="contact.facility_number"
+      >
+    </div>
+
+    <div class="form-group" >
+      <label class="form-label mt-2">facility</label>
+      <input
+        type="email"
+        class="form-control"
+        formControlName="facility"
+        name="facility"
+        placeholder="enter mail here"
+        [(ngModel)]="contact.facility"
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label mt-2">address1</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="address1"
+        name="address1"
+        placeholder="enter designation"
+        [(ngModel)]="contact.address1"
+
+    >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label mt-2">address2</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="address2"
+        name="address2"
+        placeholder="enter contact no. here"
+        [(ngModel)]="contact.address2"
+
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label mt-2">city</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="city"
+        name="city"
+        placeholder="enter contact no. here"
+        [(ngModel)]="contact.city"
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label mt-2">state</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="state"
+        name="state"
+        placeholder="enter contact no. here"
+        [(ngModel)]="contact.state"
+
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label mt-2">phone1</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="phone1"
+        name="phone1"
+        placeholder="enter contact no. here"
+        [(ngModel)]="contact.phone1"
+
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label mt-2">phone2</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="phone2"
+        name="phone2"
+        placeholder="enter contact no. here"
+        [(ngModel)]="contact.phone2"
+
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label mt-2">fax</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="fax"
+        name="fax"
+        placeholder="enter contact no. here"
+        [(ngModel)]="contact.fax"
+
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label mt-2">web_url</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="web_url"
+        name="web_url"
+        placeholder="enter contact no. here"
+        [(ngModel)]="contact.web_url"
+
+      >
+    </div>
+
+    <button class="btn btn-danger mb-4 mt-2">Submit</button>
+  </fieldset>
+</form>
+
+
+
+<div>
+  <div class="container">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">facility_number</th>
+          <th scope="col">facility</th>
+          <th scope="col">address1</th>
+          <th scope="col">address2</th>
+          <th scope="col">city</th>
+          <th scope="col">state</th>
+          <th scope="col">phone1</th>
+          <th scope="col">phone2</th>
+          <th scope="col">fax</th>
+          <th scope="col">web_url</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let cont of contacts">
+          <th>{{ cont.id }}</th>
+          <th>{{ cont.facility_number }}</th>
+          <th>{{ cont.facility }}</th>
+          <th>{{ cont.address1 }}</th>
+          <th>{{ cont.address2 }}</th>
+          <th>{{ cont.city }}</th>
+          <th>{{ cont.state }}</th>
+          <th>{{ cont.phone1 }}</th>
+          <th>{{ cont.phone2 }}</th>
+          <th>{{ cont.fax }}</th>
+          <th>{{ cont.web_url }}</th>
+          <th>
+            <i class="bx bx-edit" routerLink="edit/{{cont.id}}"></i>
+            <i class="bx bxs-trash" (click)="deleteData(cont.id)"></i>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

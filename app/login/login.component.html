@@ -1,0 +1,51 @@
+<div class="main">
+<div class="container mt-4">
+  <header class="bg-danger text-white p-2 mb-2 text-center">
+    <h1>LOG IN</h1>
+  </header>
+</div>
+
+<form (ngSubmit)="submit()" [formGroup]="form">
+  <div class="form-group mb-3">
+    <label for="email">Email</label>
+    <input
+      type="text"
+      formControlName="email"
+      name="email"
+      class="form-control"
+      placeholder="Enter Email"
+      [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+    />
+
+    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+      <div *ngIf="f.email.errors.required">Email is required</div>
+
+      <div *ngIf="f.email.errors.email">
+        Email must be a valid email address
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group mb-3">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      formControlName="password"
+      name="password"
+      class="form-control"
+      placeholder="Enter Password"
+      [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+    />
+
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div *ngIf="f.password.errors.required">Password is required</div>
+
+      <div *ngIf="f.password.errors.minlength">
+        Password must be atleast 6 characters
+      </div>
+    </div>
+  </div>
+  <p routerLink="/register" style="color: red;">REGISTER HERE</p>
+
+  <button class="btn btn-danger btn-lg mt-4">LOG-IN</button>
+</form>

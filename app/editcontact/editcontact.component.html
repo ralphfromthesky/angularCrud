@@ -1,0 +1,130 @@
+
+
+
+<button class="btn btn-danger" routerLink="/">Back</button>
+
+<form (ngSubmit)="updateData()">
+  <fieldset>
+    <div class="form-group">
+      <label class="form-label mt-2" for="name">facility_number</label>
+      <input
+        type="text"
+        class="form-control"
+        name="facility_number"
+        placeholder="facility name here"
+        [(ngModel)]="contact.facility_number"
+      >
+    </div>
+
+    <div class="form-group" >
+      <label class="form-label mt-2">facility</label>
+      <input
+        type="email"
+        class="form-control"
+        name="facility"
+        placeholder="enter mail here"
+        [(ngModel)]="contact.facility"
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label mt-2">address1</label>
+      <input
+        type="text"
+        class="form-control"
+        name="address1"
+        placeholder="enter designation"
+        [(ngModel)]="contact.address1"
+
+    >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label mt-2">address2</label>
+      <input
+        type="text"
+        class="form-control"
+        name="address2"
+        placeholder="enter contact no. here"
+        [(ngModel)]="contact.address2"
+
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label mt-2">city</label>
+      <input
+        type="text"
+        class="form-control"
+        name="city"
+        placeholder="enter contact no. here"
+        [(ngModel)]="contact.city"
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label mt-2">state</label>
+      <input
+        type="text"
+        class="form-control"
+        name="state"
+        placeholder="enter contact no. here"
+        [(ngModel)]="contact.state"
+
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label mt-2">phone1</label>
+      <input
+        type="text"
+        class="form-control"
+        name="phone1"
+        placeholder="enter contact no. here"
+        [(ngModel)]="contact.phone1"
+
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label mt-2">phone2</label>
+      <input
+        type="text"
+        class="form-control"
+        name="phone2"
+        placeholder="enter contact no. here"
+        [(ngModel)]="contact.phone2"
+
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label mt-2">fax</label>
+      <input
+        type="text"
+        class="form-control"
+        name="fax"
+        placeholder="enter contact no. here"
+        [(ngModel)]="contact.fax"
+
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label mt-2">web_url</label>
+      <input
+        type="text"
+        class="form-control"
+        name="web_url"
+        placeholder="enter contact no. here"
+        [(ngModel)]="contact.web_url"
+
+      >
+    </div>
+
+    <button class="btn btn-danger mb-4 mt-2">Update</button>
+  </fieldset>
+</form>
+
+
+
